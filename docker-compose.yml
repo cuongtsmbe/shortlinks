@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  backend:
+    container_name: backend
+    build: .
+    tty: true
+    volumes:
+      - .:/data/app
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+  postgressql:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      - POSTGRES_USER=u-sneaker
+      - POSTGRES_PASSWORD=pass-sneaker
+    ports:
+      - "5434:5432"
+    volumes:
+      # - /data/short-backend/postgresql/data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+    networks:
+      - backend
+networks:
+  backend:
+    name: backend
+
