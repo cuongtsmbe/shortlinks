@@ -73,7 +73,9 @@ export class ShortLinksController {
   }
 
   @Get(':shortLink')
-  @ApiOperation({ summary: 'Redirect shortlink' })
+  @ApiOperation({
+    summary: 'Redirect shortlink - copy link and paste in chorme',
+  })
   @Redirect('https://docs.nestjs.com', 302)
   async RedirectShortLink(@Param('shortLink') shortLink: string) {
     const ShortLink = await this.ShortLinkService.getShortLink(shortLink);
