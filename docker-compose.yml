@@ -5,8 +5,8 @@ services:
     container_name: backend
     build: .
     tty: true
-    volumes:
-      - .:/data/app
+    # volumes:
+    #   - .:/data/app
     ports:
       - "3000:3000"
     networks:
