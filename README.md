@@ -7,3 +7,8 @@
 
 2. Truy cập swagger: http://localhost:3000/api
 
+3. Để gỡ 
+```
+ ./deploy-down.sh
+```
+
